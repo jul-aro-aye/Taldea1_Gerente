@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kontrola.MahaiakController"
+            prefWidth="500"
+            prefHeight="400">
+
+    <top>
+        <ToolBar>
+            <Button fx:id="btnAdd" text="Gehitu" onAction="#gehituMahai"/>
+            <Button fx:id="btnEdit" text="Editatu" onAction="#editatuMahai"/>
+            <Button fx:id="btnDelete" text="Ezabatu" onAction="#ezabatuMahai"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="mahaiakTable" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colZenbakia" text="Zenbakia" prefWidth="160"/>
+                <TableColumn fx:id="colKapazitatea" text="Kapazitatea" prefWidth="120"/>
+                <TableColumn fx:id="colEgoera" text="Egoera" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

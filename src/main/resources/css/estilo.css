@@ -1,0 +1,49 @@
+/* Fondo general */
+.root {
+    -fx-background-color: #F4F4F4;
+}
+
+/* 🔹 Barra lateral izquierda */
+.left-vbox {
+    -fx-background-color: #E67E22; /* naranja */
+    -fx-padding: 25;
+    -fx-spacing: 15;
+}
+
+/* Título JAUS */
+.left-vbox .label {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+/* Botones de la barra lateral */
+.left-button {
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-padding: 10 0 10 10;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease; /* transición suave */
+}
+
+/* Hover profesional */
+.left-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2); /* fondo semi-transparente */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2); /* sombra sutil */
+    -fx-text-fill: #FFD700; /* texto dorado */
+    -fx-scale-x: 1.05; /* leve aumento de tamaño */
+    -fx-scale-y: 1.05;
+}
+
+/* ScrollPane lateral transparente */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+/* Contenido central */
+#contentArea {
+    -fx-padding: 40;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kontrola.RolakController"
+            prefWidth="500"
+            prefHeight="400">
+
+    <!-- Barra superior con búsqueda y botones -->
+    <top>
+        <ToolBar>
+            <Label text="Bilatu:"/>
+            <TextField fx:id="txtBuscar" promptText="Rol izena"/>
+
+            <Button fx:id="btnAdd" text="Gehitu" onAction="#gehituRol"/>
+            <Button fx:id="btnEdit" text="Editatu" onAction="#editatuRol"/>
+            <Button fx:id="btnDelete" text="Ezabatu" onAction="#ezabatuRol"/>
+        </ToolBar>
+    </top>
+
+    <!-- Tabla en el centro -->
+    <center>
+        <TableView fx:id="rolakTable" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colIzena" text="Izena" prefWidth="480"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

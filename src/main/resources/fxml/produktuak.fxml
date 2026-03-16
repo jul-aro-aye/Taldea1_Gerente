@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kontrola.ProduktuakController"
+            prefWidth="900"
+            prefHeight="500">
+
+    <top>
+        <ToolBar>
+            <Label text="Bilatu:"/>
+            <TextField fx:id="txtBilatu" promptText="Produktuaren izena"/>
+
+            <Button fx:id="btnAdd" text="Gehitu" onAction="#gehituProduktua"/>
+            <Button fx:id="btnEdit" text="Editatu" onAction="#editatuProduktua"/>
+            <Button fx:id="btnDelete" text="Ezabatu" onAction="#ezabatuProduktua"/>
+
+            <Separator orientation="VERTICAL"/>
+
+            <Label text="Filtratu kategoria:"/>
+            <ComboBox fx:id="cmbKategoriak" prefWidth="150"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="produktuTable">
+            <columns>
+                <TableColumn fx:id="colIzena" text="Izena" prefWidth="250"/>
+                <TableColumn fx:id="colKategoria" text="Kategoria" prefWidth="150"/>
+                <TableColumn fx:id="colPrezioa" text="Prezioa" prefWidth="100"/>
+                <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
