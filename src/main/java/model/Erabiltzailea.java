@@ -52,6 +52,9 @@ public class Erabiltzailea {
     public boolean isChat() { return chat; }
     public void setChat(boolean chat) { this.chat = chat; }
 
+    public boolean isTxat() { return chat; }
+    public void setTxat(boolean txat) { this.chat = txat; }
+
     
     public String getRola() {
         switch (rolaId) {

@@ -16,6 +16,10 @@ public class ProduktuOsagaia {
         this.unitatea = unitatea;
     }
 
+    public ProduktuOsagaia(int produktuaId, int osagaiaId, double kantitatea, String unitatea) {
+        this(produktuaId, osagaiaId, null, kantitatea, unitatea);
+    }
+
     
     public int getProduktuaId() { return produktuaId; }
     public int getOsagaiaId() { return osagaiaId; }

@@ -14,6 +14,10 @@ public class Mahaia {
         this.egoera = egoera;
     }
 
+    public Mahaia(int id, int zenbakia, String egoera) {
+        this(id, zenbakia, 0, egoera);
+    }
+
     public int getId() { return id; }
     public int getZenbakia() { return zenbakia; }
     public int getKapazitatea() { return kapazitatea; }
