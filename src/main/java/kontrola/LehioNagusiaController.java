@@ -13,7 +13,7 @@ public class LehioNagusiaController {
 
     @FXML
     public void initialize() {
-        System.out.println("LehioNagusiaController inicializado correctamente.");
+        System.out.println("LehioNagusiaController ondo hasieratu da.");
     }
 
     
@@ -38,6 +38,11 @@ public class LehioNagusiaController {
     }
 
     @FXML
+    public void kargatuErreserbak() {
+        cargarVista("/fxml/erreserbak.fxml", "Erreserbak");
+    }
+
+    @FXML
     public void kargatuRolak() {
         cargarVista("/fxml/rolak.fxml", "Rolak");
     }
@@ -49,7 +54,7 @@ public class LehioNagusiaController {
 
     
     private void cargarVista(String rutaFXML, String nombreVista) {
-        System.out.println("Pantalla de " + nombreVista + "...");
+        System.out.println(nombreVista + " pantaila kargatzen...");
 
         try {
             FXMLLoader loader = new FXMLLoader(
@@ -66,7 +71,7 @@ public class LehioNagusiaController {
             contentArea.getChildren().setAll(pane);
 
         } catch (Exception e) {
-            System.out.println("ERROR cargando " + rutaFXML);
+            System.out.println("ERROREA " + rutaFXML + " kargatzean.");
             e.printStackTrace();
         }
     }

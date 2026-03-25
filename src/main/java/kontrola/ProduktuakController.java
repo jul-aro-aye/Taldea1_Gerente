@@ -43,6 +43,7 @@ public class ProduktuakController {
         colKategoria.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue().getKategoriaId()));
         colPrezioa.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue().getPrezioa()));
         colStock.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue().getStockAktuala()));
+        produktuTable.setPlaceholder(new Label("Ez dago daturik."));
 
         
         produktuak = FXCollections.observableArrayList(ProduktuakDB.lortuProduktuak());
@@ -145,6 +146,7 @@ public class ProduktuakController {
 
     private void alerta(String mezua) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setTitle("Informazioa");
         a.setHeaderText(null);
         a.setContentText(mezua);
         a.showAndWait();

@@ -61,7 +61,7 @@ public class Erabiltzailea {
             case 1: return "administratzailea";
             case 2: return "zerbitzaria";
             case 3: return "sukaldaria";
-            default: return "Desconocido";
+            default: return "Ezezaguna";
         }
     }
 }

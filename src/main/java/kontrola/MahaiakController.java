@@ -17,7 +17,6 @@ public class MahaiakController {
 
     @FXML private TableView<Mahaia> mahaiakTable;
     @FXML private TableColumn<Mahaia, String> colZenbakia;
-    @FXML private TableColumn<Mahaia, String> colKapazitatea;
     @FXML private TableColumn<Mahaia, String> colEgoera;
     @FXML private Button btnAdd, btnEdit, btnDelete;
 
@@ -26,8 +25,8 @@ public class MahaiakController {
     @FXML
     public void initialize() {
         colZenbakia.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(String.valueOf(c.getValue().getZenbakia())));
-        colKapazitatea.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(String.valueOf(c.getValue().getKapazitatea())));
         colEgoera.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getEgoera()));
+        mahaiakTable.setPlaceholder(new Label("Ez dago daturik."));
 
         kargatuDatuak();
 
@@ -74,6 +73,8 @@ public class MahaiakController {
 
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
                 "Ziur zaude mahai hau ezabatu nahi duzula?", ButtonType.YES, ButtonType.NO);
+        confirm.setTitle("Baieztapena");
+        confirm.setHeaderText(null);
 
         if (confirm.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
             boolean deleted = MahaiakDB.ezabatuMahai(m.getId());
@@ -91,7 +92,7 @@ public class MahaiakController {
             controller.setMahai(m);
 
             Stage stage = new Stage();
-            stage.setTitle(m == null ? "Mahaia gehitu" : "Mahaia editatu");
+            stage.setTitle(m == null ? "Mahaia gehitu" : "Mahaia aldatu");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
@@ -104,6 +105,9 @@ public class MahaiakController {
     }
 
     private void alerta(String mezua) {
-        new Alert(Alert.AlertType.WARNING, mezua).showAndWait();
+        Alert alert = new Alert(Alert.AlertType.WARNING, mezua);
+        alert.setTitle("Abisua");
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

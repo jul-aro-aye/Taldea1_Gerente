@@ -32,6 +32,7 @@ public class OsagaiakController {
         colIzena.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getIzena()));
         colUnitatea.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getUnitatea()));
         colStock.setCellValueFactory(cell -> new javafx.beans.property.SimpleObjectProperty<>(cell.getValue().getStock_aktuala()));
+        table.setPlaceholder(new Label("Ez dago daturik."));
 
         
         masterData = FXCollections.observableArrayList(OsagaiakDB.lortuGuztiak());
@@ -96,7 +97,10 @@ public class OsagaiakController {
                 table.refresh();
             }
         } else {
-            new Alert(Alert.AlertType.WARNING, "Mesedez, hautatu osagaia editatzeko.").showAndWait();
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Hautatu osagai bat editatzeko.");
+            alert.setTitle("Abisua");
+            alert.setHeaderText(null);
+            alert.showAndWait();
         }
     }
 
@@ -104,14 +108,19 @@ public class OsagaiakController {
     private void ezabatuOsagaia() {
         Osagaiak seleccionado = table.getSelectionModel().getSelectedItem();
         if (seleccionado != null) {
-            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Ziur zaude ezabatu nahi duzula?");
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Ziur zaude osagai hau ezabatu nahi duzula?");
+            confirm.setTitle("Baieztapena");
+            confirm.setHeaderText(null);
             Optional<ButtonType> result = confirm.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 OsagaiakDB.delete(seleccionado.getId());
                 masterData.remove(seleccionado);
             }
         } else {
-            new Alert(Alert.AlertType.WARNING, "Mesedez, hautatu osagaia ezabatzeko.").showAndWait();
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Hautatu osagai bat ezabatzeko.");
+            alert.setTitle("Abisua");
+            alert.setHeaderText(null);
+            alert.showAndWait();
         }
     }
 }

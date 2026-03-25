@@ -51,7 +51,7 @@ public class ErabiltzaileakDB {
     public boolean insert(Erabiltzailea e) {
         String sql = """
             INSERT INTO erabiltzaileak
-            (erabiltzailea, email, pasahitza, rola_id, ezabatua, chat)
+            (erabiltzailea, email, pasahitza, rola_id, ezabatua, txat)
             VALUES (?, ?, ?, ?, 0, ?)
         """;
 
@@ -74,7 +74,7 @@ public class ErabiltzaileakDB {
         String sql = """
             UPDATE erabiltzaileak SET
             erabiltzailea = ?, email = ?, pasahitza = ?,
-            rola_id = ?, chat = ?
+            rola_id = ?, txat = ?
             WHERE id = ?
         """;
 
@@ -127,7 +127,7 @@ public class ErabiltzaileakDB {
         e.setPasahitza(rs.getString("pasahitza"));
         e.setRolaId(rs.getInt("rola_id"));
         e.setEzabatua(rs.getBoolean("ezabatua"));
-        e.setChat(rs.getBoolean("chat"));
+        e.setChat(rs.getBoolean("txat"));
         return e;
     }
 }

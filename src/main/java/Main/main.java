@@ -19,7 +19,7 @@ public class main extends Application {
             
             scene.getStylesheets().add(getClass().getResource("/css/estilo.css").toExternalForm());
 
-            primaryStage.setTitle("JAUS - Login");
+            primaryStage.setTitle("Saioa hasi");
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();

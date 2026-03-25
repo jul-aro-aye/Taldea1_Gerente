@@ -17,8 +17,8 @@
         <Label text="Unitatea:"/>
         <TextField fx:id="txtUnitatea" promptText="Sartu unitatea"/>
 
-        <Label text="Stock Aktuala:"/>
-        <TextField fx:id="txtStock" promptText="Sartu stock-a"/>
+        <Label text="Uneko stocka:"/>
+        <TextField fx:id="txtStock" promptText="Sartu stocka"/>
 
         <HBox spacing="10" alignment="CENTER_RIGHT">
             <Button fx:id="btnGorde" text="Gorde" onAction="#gordeOsagaia"/>

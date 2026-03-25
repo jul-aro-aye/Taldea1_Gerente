@@ -13,7 +13,7 @@
     <top>
         <ToolBar>
             <Label text="Bilatu:"/>
-            <TextField fx:id="txtBuscar" promptText="Rol izena"/>
+            <TextField fx:id="txtBuscar" promptText="Rolaren izena"/>
 
             <Button fx:id="btnAdd" text="Gehitu" onAction="#gehituRol"/>
             <Button fx:id="btnEdit" text="Editatu" onAction="#editatuRol"/>

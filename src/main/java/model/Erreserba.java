@@ -6,6 +6,7 @@ public class Erreserba {
     private int mahaiaId;
     private String bezeroaIzena;
     private String telefonoa;
+    private java.sql.Date erreserbaData;
     private java.sql.Date data;
     private String txanda;
     private int pertsonaKopurua;
@@ -15,11 +16,13 @@ public class Erreserba {
     }
 
     public Erreserba(int id, int mahaiaId, String bezeroaIzena, String telefonoa,
-                     java.sql.Date data, String txanda, int pertsonaKopurua, String egoera) {
+                     java.sql.Date erreserbaData, java.sql.Date data, String txanda,
+                     int pertsonaKopurua, String egoera) {
         this.id = id;
         this.mahaiaId = mahaiaId;
         this.bezeroaIzena = bezeroaIzena;
         this.telefonoa = telefonoa;
+        this.erreserbaData = erreserbaData;
         this.data = data;
         this.txanda = txanda;
         this.pertsonaKopurua = pertsonaKopurua;
@@ -37,6 +40,9 @@ public class Erreserba {
 
     public String getTelefonoa() { return telefonoa; }
     public void setTelefonoa(String telefonoa) { this.telefonoa = telefonoa; }
+
+    public java.sql.Date getErreserbaData() { return erreserbaData; }
+    public void setErreserbaData(java.sql.Date erreserbaData) { this.erreserbaData = erreserbaData; }
 
     public java.sql.Date getData() { return data; }
     public void setData(java.sql.Date data) { this.data = data; }

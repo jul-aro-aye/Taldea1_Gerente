@@ -34,6 +34,7 @@ public class RolakController {
     public void initialize() {
         
         colIzena.setCellValueFactory(cell -> new javafx.beans.property.SimpleStringProperty(cell.getValue().getIzena()));
+        rolakTable.setPlaceholder(new Label("Ez dago daturik."));
 
         
         List<Rolak> lista = RolakDB.lortuGuztiak();
@@ -72,7 +73,7 @@ public class RolakController {
     @FXML
     private void gehituRol() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Gehitu Rol");
+        dialog.setTitle("Rola gehitu");
         dialog.setHeaderText("Sartu rolaren izena:");
         dialog.setContentText("Izena:");
         dialog.showAndWait().ifPresent(name -> {
@@ -92,7 +93,7 @@ public class RolakController {
         if (selected == null) return;
 
         TextInputDialog dialog = new TextInputDialog(selected.getIzena());
-        dialog.setTitle("Editatu Rol");
+        dialog.setTitle("Rola aldatu");
         dialog.setHeaderText("Aldatu rolaren izena:");
         dialog.setContentText("Izena:");
         dialog.showAndWait().ifPresent(name -> {
@@ -111,7 +112,7 @@ public class RolakController {
         if (selected == null) return;
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Ezabatu Rol");
+        alert.setTitle("Rola ezabatu");
         alert.setHeaderText("Ziur zaude rol hau ezabatu nahi duzula?");
         alert.setContentText(selected.getIzena());
 

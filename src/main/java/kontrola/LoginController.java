@@ -32,7 +32,7 @@ public class LoginController {
         LoginManager loginManager = new LoginManager();
 
         if (loginManager.login(user)) {
-            alertaErakutsi("Saioa ondo hasi da", "Ongi etorri, " + erabiltzailea + "!", Alert.AlertType.INFORMATION);
+            alertaErakutsi("Saioa ondo hasi da", "Ongi etorri, " + erabiltzailea + ".", Alert.AlertType.INFORMATION);
             leihoNagusiaIreki();
         } else {
             alertaErakutsi("Errorea", "Erabiltzailea edo pasahitza okerra", Alert.AlertType.ERROR);
@@ -58,7 +58,7 @@ public class LoginController {
             scene.getStylesheets().add(getClass().getResource("/css/estilo.css").toExternalForm());
 
             Stage stage = new Stage();
-            stage.setTitle("JAUS - Leiho Nagusia");
+            stage.setTitle("JAUS - Leiho nagusia");
             stage.setScene(scene);
 
 

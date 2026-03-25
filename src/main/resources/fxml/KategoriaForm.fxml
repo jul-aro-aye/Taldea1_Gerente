@@ -7,7 +7,6 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="kontrola.KategoriaFormController"
             prefWidth="350" prefHeight="150">
     <VBox spacing="10">
-        <!-- Padding usando Insets -->
         <padding>
             <Insets top="10" right="10" bottom="10" left="10"/>
         </padding>

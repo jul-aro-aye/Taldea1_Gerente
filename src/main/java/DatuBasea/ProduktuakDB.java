@@ -46,7 +46,7 @@ public class ProduktuakDB {
 
             int affectedRows = ps.executeUpdate();
             if (affectedRows == 0) {
-                throw new SQLException("No se pudo insertar el producto, no se afectaron filas.");
+                throw new SQLException("Ezin izan da produktua txertatu, ez da lerrorik eragin.");
             }
 
             try (ResultSet rs = ps.getGeneratedKeys()) {
@@ -55,7 +55,7 @@ public class ProduktuakDB {
                     p.setId(idGenerado); 
                     return idGenerado;   
                 } else {
-                    throw new SQLException("No se pudo obtener el ID del producto insertado.");
+                    throw new SQLException("Ezin izan da txertatutako produktuaren IDa lortu.");
                 }
             }
 

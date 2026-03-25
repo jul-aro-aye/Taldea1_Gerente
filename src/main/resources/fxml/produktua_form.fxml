@@ -32,7 +32,7 @@
 
     <Label text="Osagaiak:" style="-fx-font-weight: bold"/>
 
-    <TextField fx:id="txtBilatuOsagaia" promptText="Bilatu osagaia..."/>
+    <TextField fx:id="txtBilatuOsagaia" promptText="Bilatu osagaia"/>
 
     <HBox spacing="10">
         <TableView fx:id="osagaiTaula" prefHeight="150">

@@ -13,7 +13,7 @@
     <top>
         <ToolBar>
             <Label text="Bilatu:"/>
-            <TextField fx:id="txtBuscar" promptText="Osagaia izena"/>
+            <TextField fx:id="txtBuscar" promptText="Osagaiaren izena"/>
 
             <Button fx:id="btnAdd" text="Gehitu" onAction="#gehituOsagaia"/>
             <Button fx:id="btnEdit" text="Editatu" onAction="#editatuOsagaia"/>
@@ -27,7 +27,7 @@
             <columns>
                 <TableColumn fx:id="colIzena" text="Izena" prefWidth="200"/>
                 <TableColumn fx:id="colUnitatea" text="Unitatea" prefWidth="150"/>
-                <TableColumn fx:id="colStock" text="Stock Aktuala" prefWidth="150"/>
+                <TableColumn fx:id="colStock" text="Uneko stocka" prefWidth="150"/>
             </columns>
         </TableView>
     </center>

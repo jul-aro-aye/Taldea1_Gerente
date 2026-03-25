@@ -8,7 +8,7 @@
 
 <?import javafx.geometry.Insets?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="kontrola.MahaiaFormController"
-            prefWidth="350" prefHeight="180">
+            prefWidth="350" prefHeight="150">
     <VBox spacing="10">
         <padding>
             <Insets top="10" right="10" bottom="10" left="10"/>
@@ -16,9 +16,6 @@
 
         <Label text="Zenbakia:"/>
         <TextField fx:id="txtZenbakia" promptText="Sartu mahai zenbakia"/>
-
-        <Label text="Kapazitatea:"/>
-        <TextField fx:id="txtKapazitatea" promptText="Sartu kapazitatea"/>
 
         <Label text="Egoera:"/>
         <ComboBox fx:id="cmbEgoera" promptText="Hautatu egoera"/>

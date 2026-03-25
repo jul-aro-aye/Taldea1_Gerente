@@ -26,7 +26,7 @@ public class OsagaiakFormController {
         try {
             FXMLLoader loader = new FXMLLoader(OsagaiakFormController.class.getResource("/fxml/OsagaiForm.fxml"));
             Stage stage = new Stage();
-            stage.setTitle(o == null ? "Gehitu Osagaia" : "Editatu Osagaia");
+            stage.setTitle(o == null ? "Osagaia gehitu" : "Osagaia aldatu");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(loader.load()));
 

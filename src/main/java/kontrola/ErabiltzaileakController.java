@@ -38,6 +38,7 @@ public class ErabiltzaileakController {
         colPasahitza.setCellValueFactory(new PropertyValueFactory<>("pasahitza"));
         colEzabatua.setCellValueFactory(new PropertyValueFactory<>("ezabatua"));
         colChat.setCellValueFactory(new PropertyValueFactory<>("chat"));
+        erabiltzaileTable.setPlaceholder(new Label("Ez dago daturik."));
 
         
         colEzabatua.setCellFactory(col -> new TableCell<>() {
@@ -57,12 +58,12 @@ public class ErabiltzaileakController {
         });
 
         
-        cmbFiltro.getItems().addAll("Aktiboak", "Borratuak", "Dena");
+        cmbFiltro.getItems().addAll("Aktiboak", "Ezabatuak", "Guztiak");
         cmbFiltro.setValue("Aktiboak");
 
         
-        cmbRola.getItems().addAll("Denak", "Admin", "Langilea");
-        cmbRola.setValue("Denak");
+        cmbRola.getItems().addAll("Guztiak", "administratzailea", "zerbitzaria", "sukaldaria");
+        cmbRola.setValue("Guztiak");
 
         
         erabiltzaileak = FXCollections.observableArrayList(erabiltzaileakDB.getAll());
@@ -108,7 +109,7 @@ public class ErabiltzaileakController {
             
             boolean status;
             if ("Aktiboak".equals(filtro)) status = !e.isEzabatua();
-            else if ("Borratuak".equals(filtro)) status = e.isEzabatua();
+            else if ("Ezabatuak".equals(filtro)) status = e.isEzabatua();
             else status = true;
 
             
@@ -117,7 +118,7 @@ public class ErabiltzaileakController {
 
             
             boolean rol = true;
-            if (!"Denak".equals(rolFiltro)) {
+            if (!"Guztiak".equals(rolFiltro)) {
                 rol = e.getRola().equals(rolFiltro); 
             }
 
@@ -143,13 +144,13 @@ public class ErabiltzaileakController {
                 btnDelete.setText("Ezabatu");
                 break;
 
-            case "Borratuak":
+            case "Ezabatuak":
                 btnEdit.setDisable(sel == null);
                 btnDelete.setDisable(sel == null);
                 btnDelete.setText("Berreskuratu");
                 break;
 
-            case "Dena":
+            case "Guztiak":
                 btnEdit.setDisable(sel == null);
                 btnDelete.setDisable(sel == null);
                 btnDelete.setText(sel != null && sel.isEzabatua() ? "Berreskuratu" : "Ezabatu");
@@ -176,6 +177,8 @@ public class ErabiltzaileakController {
         boolean rec = sel.isEzabatua();
         Alert a = new Alert(Alert.AlertType.CONFIRMATION,
                 rec ? "Berreskuratu erabiltzailea?" : "Ezabatu erabiltzailea?");
+        a.setTitle("Baieztapena");
+        a.setHeaderText(null);
         if (a.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK) return;
 
         if (rec) erabiltzaileakDB.berreskuratu(sel.getId());
@@ -192,13 +195,13 @@ public class ErabiltzaileakController {
 
     private Erabiltzailea dialog(Erabiltzailea e) {
         Dialog<Erabiltzailea> d = new Dialog<>();
-        d.setTitle(e == null ? "Gehitu" : "Editatu");
+        d.setTitle(e == null ? "Erabiltzailea gehitu" : "Erabiltzailea aldatu");
 
         ButtonType save = new ButtonType("Gorde", ButtonBar.ButtonData.OK_DONE);
         d.getDialogPane().getButtonTypes().addAll(save, ButtonType.CANCEL);
 
         TextField t1 = new TextField(), t2 = new TextField();
-        CheckBox chk = new CheckBox("Chat");
+        CheckBox chk = new CheckBox("Txata");
 
         if (e != null) {
             t1.setText(e.getErabiltzailea());
@@ -209,7 +212,7 @@ public class ErabiltzaileakController {
         GridPane g = new GridPane();
         g.setVgap(10); g.setHgap(10);
         g.addRow(0, new Label("Erabiltzailea:"), t1);
-        g.addRow(1, new Label("Email:"), t2);
+        g.addRow(1, new Label("Helbide elektronikoa:"), t2);
         g.addRow(2, chk);
 
         d.getDialogPane().setContent(g);

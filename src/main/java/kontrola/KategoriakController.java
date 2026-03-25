@@ -26,6 +26,7 @@ public class KategoriakController {
     public void initialize() {
         
         colIzena.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getIzena()));
+        kategoriakTable.setPlaceholder(new Label("Ez dago daturik."));
 
         cargarDatos();
 
@@ -88,6 +89,8 @@ public class KategoriakController {
                 "Ziur zaude kategoria hau ezabatu nahi duzula?",
                 ButtonType.YES, ButtonType.NO
         );
+        confirm.setTitle("Baieztapena");
+        confirm.setHeaderText(null);
 
         if (confirm.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
             boolean eliminado = KategoriakDB.ezabatuKategoria(k.getId());
@@ -105,7 +108,7 @@ public class KategoriakController {
             controller.setKategoria(kategoria);
 
             Stage stage = new Stage();
-            stage.setTitle(kategoria == null ? "Gehitu Kategoria" : "Editatu Kategoria");
+            stage.setTitle(kategoria == null ? "Kategoria gehitu" : "Kategoria aldatu");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
@@ -118,6 +121,9 @@ public class KategoriakController {
     }
 
     private void alerta(String mezua) {
-        new Alert(Alert.AlertType.WARNING, mezua).showAndWait();
+        Alert alert = new Alert(Alert.AlertType.WARNING, mezua);
+        alert.setTitle("Abisua");
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }
