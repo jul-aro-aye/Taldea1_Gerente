@@ -12,15 +12,16 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="kontrola.ErreserbaFormController"
-            prefWidth="360"
-            prefHeight="360">
-    <VBox spacing="10">
+            prefWidth="420"
+            prefHeight="400">
+    <VBox spacing="10" prefWidth="400" AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
         <padding>
-            <Insets top="10" right="10" bottom="10" left="10"/>
+            <Insets top="14" right="14" bottom="14" left="14"/>
         </padding>
 
         <Label text="Mahai zenbakia:"/>
         <ComboBox fx:id="cmbMahaia" promptText="Hautatu mahaia"/>
+        <Label fx:id="lblMahaiaOharra" wrapText="true"/>
 
         <Label text="Bezeroa:"/>
         <TextField fx:id="txtBezeroa" promptText="Sartu bezeroaren izena"/>

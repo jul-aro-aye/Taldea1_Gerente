@@ -17,6 +17,7 @@ public class MahaiakController {
 
     @FXML private TableView<Mahaia> mahaiakTable;
     @FXML private TableColumn<Mahaia, String> colZenbakia;
+    @FXML private TableColumn<Mahaia, String> colKapazitatea;
     @FXML private TableColumn<Mahaia, String> colEgoera;
     @FXML private Button btnAdd, btnEdit, btnDelete;
 
@@ -25,6 +26,7 @@ public class MahaiakController {
     @FXML
     public void initialize() {
         colZenbakia.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(String.valueOf(c.getValue().getZenbakia())));
+        colKapazitatea.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(String.valueOf(c.getValue().getKapazitatea())));
         colEgoera.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getEgoera()));
         mahaiakTable.setPlaceholder(new Label("Ez dago daturik."));
 

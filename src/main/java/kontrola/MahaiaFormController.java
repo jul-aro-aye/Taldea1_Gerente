@@ -12,6 +12,7 @@ import model.Mahaia;
 public class MahaiaFormController {
 
     @FXML private TextField txtZenbakia;
+    @FXML private TextField txtKapazitatea;
     @FXML private ComboBox<String> cmbEgoera;
 
     private Mahaia editatzen;
@@ -27,6 +28,7 @@ public class MahaiaFormController {
         this.editatzen = m;
         if (m != null) {
             txtZenbakia.setText(String.valueOf(m.getZenbakia()));
+            txtKapazitatea.setText(String.valueOf(m.getKapazitatea()));
             cmbEgoera.setValue(m.getEgoera());
         }
     }
@@ -34,29 +36,36 @@ public class MahaiaFormController {
     @FXML
     private void gordeMahai() {
         String zenbStr = txtZenbakia.getText().trim();
+        String kapStr = txtKapazitatea.getText().trim();
         String egoera = cmbEgoera.getValue();
 
-        if (zenbStr.isEmpty() || egoera == null || egoera.isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Sartu zenbakia eta egoera.").showAndWait();
+        if (zenbStr.isEmpty() || kapStr.isEmpty() || egoera == null || egoera.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Sartu zenbakia, kapazitatea eta egoera.").showAndWait();
             return;
         }
 
         int zenbakia;
+        int kapazitatea;
         try {
             zenbakia = Integer.parseInt(zenbStr);
+            kapazitatea = Integer.parseInt(kapStr);
+            if (kapazitatea <= 0) {
+                throw new NumberFormatException();
+            }
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.WARNING, "Zenbakia ez da baliozko zenbakia.").showAndWait();
+            new Alert(Alert.AlertType.WARNING, "Zenbakia eta kapazitatea zenbaki positiboak izan behar dira.").showAndWait();
             return;
         }
 
         if (editatzen == null) {
-            int id = MahaiakDB.gehituMahai(new Mahaia(0, zenbakia, egoera));
+            int id = MahaiakDB.gehituMahai(new Mahaia(0, zenbakia, kapazitatea, egoera));
             if (id == -1) {
                 new Alert(Alert.AlertType.ERROR, "Ezin izan da mahai gorde.").showAndWait();
                 return;
             }
         } else {
             editatzen.setZenbakia(zenbakia);
+            editatzen.setKapazitatea(kapazitatea);
             editatzen.setEgoera(egoera);
             MahaiakDB.eguneratuMahai(editatzen);
         }

@@ -26,7 +26,7 @@
             <children>
 
 
-                <Label text="JAUS" style="-fx-text-fill: #3F7AE0; -fx-font-weight: bold;">
+                <Label text="AJA" style="-fx-text-fill: #3F7AE0; -fx-font-weight: bold;">
                     <font>
                         <Font size="28"/>
                     </font>

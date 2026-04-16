@@ -25,6 +25,7 @@ public class MahaiakDB {
                 lista.add(new Mahaia(
                         rs.getInt("id"),
                         rs.getInt("zenbakia"),
+                        rs.getInt("kapazitatea"),
                         rs.getString("egoera")
                 ));
             }
@@ -36,13 +37,14 @@ public class MahaiakDB {
     }
 
     public static int gehituMahai(Mahaia m) {
-        String sql = "INSERT INTO mahaiak (zenbakia, egoera) VALUES (?, ?)";
+        String sql = "INSERT INTO mahaiak (zenbakia, kapazitatea, egoera) VALUES (?, ?, ?)";
 
         try (Connection c = Conn.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setInt(1, m.getZenbakia());
-            ps.setString(2, m.getEgoera());
+            ps.setInt(2, m.getKapazitatea());
+            ps.setString(3, m.getEgoera());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
@@ -56,14 +58,15 @@ public class MahaiakDB {
     }
 
     public static void eguneratuMahai(Mahaia m) {
-        String sql = "UPDATE mahaiak SET zenbakia=?, egoera=? WHERE id=?";
+        String sql = "UPDATE mahaiak SET zenbakia=?, kapazitatea=?, egoera=? WHERE id=?";
 
         try (Connection c = Conn.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql)) {
+            PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setInt(1, m.getZenbakia());
-            ps.setString(2, m.getEgoera());
-            ps.setInt(3, m.getId());
+            ps.setInt(2, m.getKapazitatea());
+            ps.setString(3, m.getEgoera());
+            ps.setInt(4, m.getId());
             ps.executeUpdate();
 
         } catch (SQLException e) {

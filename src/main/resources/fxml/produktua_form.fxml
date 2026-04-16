@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="kontrola.ProduktuaFormController"
@@ -11,8 +19,6 @@
     <padding>
         <Insets top="15" right="15" bottom="15" left="15"/>
     </padding>
-
-
 
     <GridPane hgap="10" vgap="10">
         <Label text="Izena:"/>
@@ -24,7 +30,7 @@
         <Label text="Prezioa:" GridPane.rowIndex="2"/>
         <TextField fx:id="txtPrezioa" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-        <Label text="Stock:" GridPane.rowIndex="3"/>
+        <Label text="Stocka:" GridPane.rowIndex="3"/>
         <TextField fx:id="txtStock" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
     </GridPane>
 
@@ -32,7 +38,23 @@
 
     <Label text="Osagaiak:" style="-fx-font-weight: bold"/>
 
-    <TextField fx:id="txtBilatuOsagaia" promptText="Bilatu osagaia"/>
+    <GridPane hgap="10" vgap="10">
+        <Label text="Osagaia:"/>
+        <ComboBox fx:id="cmbOsagaiBerria" promptText="Hautatu osagaia" GridPane.columnIndex="1"/>
+
+        <Label text="Kantitatea:" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtKantitateBerria" promptText="Adib. 2.5" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Unitatea:" GridPane.rowIndex="2"/>
+        <Label fx:id="lblUnitateaBerria" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Gehitu osagaia" onAction="#gehituOsagaia"/>
+        <Button text="Kendu osagaia" onAction="#kenduOsagaia"/>
+    </HBox>
+
+    <TextField fx:id="txtBilatuOsagaia" promptText="Bilatu gehitutako osagaia"/>
 
     <HBox spacing="10">
         <TableView fx:id="osagaiTaula" prefHeight="150">
@@ -43,10 +65,6 @@
             </columns>
         </TableView>
 
-        <VBox spacing="5">
-            <Button text="➕ Gehitu" onAction="#gehituOsagaia"/>
-            <Button text="❌ Kendu" onAction="#kenduOsagaia"/>
-        </VBox>
     </HBox>
 
     <HBox spacing="10" alignment="CENTER_RIGHT">

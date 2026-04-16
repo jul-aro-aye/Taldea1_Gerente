@@ -15,7 +15,6 @@ public class main extends Application {
             Parent root = loader.load();
 
             Scene scene = new Scene(root, 600, 450);
-
             
             scene.getStylesheets().add(getClass().getResource("/css/estilo.css").toExternalForm());
 

@@ -22,8 +22,8 @@ public class Erreserba {
         this.mahaiaId = mahaiaId;
         this.bezeroaIzena = bezeroaIzena;
         this.telefonoa = telefonoa;
-        this.erreserbaData = erreserbaData;
-        this.data = data;
+        this.erreserbaData = erreserbaData != null ? erreserbaData : data;
+        this.data = data != null ? data : erreserbaData;
         this.txanda = txanda;
         this.pertsonaKopurua = pertsonaKopurua;
         this.egoera = egoera;
@@ -41,11 +41,17 @@ public class Erreserba {
     public String getTelefonoa() { return telefonoa; }
     public void setTelefonoa(String telefonoa) { this.telefonoa = telefonoa; }
 
-    public java.sql.Date getErreserbaData() { return erreserbaData; }
-    public void setErreserbaData(java.sql.Date erreserbaData) { this.erreserbaData = erreserbaData; }
+    public java.sql.Date getErreserbaData() { return erreserbaData != null ? erreserbaData : data; }
+    public void setErreserbaData(java.sql.Date erreserbaData) {
+        this.erreserbaData = erreserbaData;
+        this.data = erreserbaData;
+    }
 
     public java.sql.Date getData() { return data; }
-    public void setData(java.sql.Date data) { this.data = data; }
+    public void setData(java.sql.Date data) {
+        this.data = data;
+        this.erreserbaData = data;
+    }
 
     public String getTxanda() { return txanda; }
     public void setTxanda(String txanda) { this.txanda = txanda; }
